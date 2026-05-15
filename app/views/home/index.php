@@ -256,7 +256,7 @@
             ?>
 
             <div class="col-md-3">
-                <img src="public/img/<?php echo $img; ?>" class="img-fluid rounded">
+                <img src="img/<?php echo $img; ?>" class="img-fluid rounded">
             </div>
 
             <?php endforeach; ?>
