@@ -251,7 +251,7 @@
         <div class="row mt-4">
 
             <?php
-            $instalaciones = ["public/img/mancuernas.png","public/img/zona-cintas.png","public/img/zona-clases.png","public/img/mancuernas.png"];
+            $instalaciones = ["mancuernas.png","zona-cintas.png","zona-clases.png","mancuernas.png"];
             foreach ($instalaciones as $img):
             ?>
 
