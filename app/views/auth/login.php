@@ -33,7 +33,6 @@
 
                         <div class="d-flex justify-content-between small mb-3">
                             <a href="index.php?action=register">Crear cuenta</a>
-                            <a href="#">¿Has olvidado tu contraseña?</a>
                         </div>
 
                         <button class="btn btn-primary w-100">INICIAR SESIÓN</button>
