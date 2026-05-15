@@ -80,9 +80,9 @@
 
          data-description="<?php echo $p['descripcion']; ?>"
 
-         data-image="/FitLab/public/img/<?php echo $p['imagen']; ?>">
+         data-image="img/<?php echo $p['imagen']; ?>">
 
-        <img src="/FitLab/public/img/<?php echo $p['imagen']; ?>"
+        <img src="img/<?php echo $p['imagen']; ?>"
              class="imagen-producto">
 
         <div class="card-body">

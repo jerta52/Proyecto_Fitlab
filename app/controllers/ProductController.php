@@ -112,6 +112,7 @@ class ProductController {
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
         $descripcion = $_POST['descripcion'];
+        $id_categoria = $_POST['id_categoria'];
 
         // MANEJAR IMAGEN
         $imagenNombre = $_FILES['imagen']['name'];
@@ -131,7 +132,8 @@ class ProductController {
             $precio,
             $stock,
             $descripcion,
-            $imagenNombre
+            $imagenNombre,
+            $id_categoria
         );
 
         header("Location: index.php?action=products");
@@ -214,6 +216,8 @@ class ProductController {
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
         $descripcion = $_POST['descripcion'];
+        $id_categoria = $_POST['id_categoria'];
+        
 
         // ACTUALIZAR IMAGEN SI SE SUBE UNA NUEVA
         if (!empty($_FILES['imagen']['name'])) {
@@ -239,7 +243,8 @@ class ProductController {
             $precio,
             $stock,
             $descripcion,
-            $imagenNombre
+            $imagenNombre,
+            $id_categoria
         );
 
         header("Location: index.php?action=catalogo");

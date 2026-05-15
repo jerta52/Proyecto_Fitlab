@@ -34,7 +34,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <a class="navbar-brand" href="index.php">
 
             <img 
-                src="/FitLab/public/img/logos/Logo_Nav.png"
+                src="img/logos/Logo_Nav.png"
                 alt="FitLab"
                 class="logo-menu"
             >

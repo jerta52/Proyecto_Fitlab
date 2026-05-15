@@ -40,7 +40,15 @@
                             <label>Descripción</label>
                             <input type="textarea" name="descripcion" class="form-control" placeholder="Descripción">
                         </div>
-
+                        <div class="mb-3">
+                            <label for="id_categoria" class="form-label">Categoría</label>
+                            <select name="id_categoria" id="id_categoria" class="form-control" required>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="1">Suplementos</option>
+                                <option value="2">Ropa</option>
+                                <option value="3">Accesorios</option>
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label>Imagen del producto</label>
                             <input type="file" name="imagen" class="form-control">

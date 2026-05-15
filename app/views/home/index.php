@@ -117,7 +117,7 @@
             $servicios = [
 
                 [
-                    "img" => "/FitLab/public/img/asesor_entrenador.png",
+                    "img" => "img/asesor_entrenador.png",
 
                     "titulo" => "Entrenamiento personal",
 
@@ -126,7 +126,7 @@
                 ],
 
                 [
-                    "img" => "/FitLab/public/img/mancuernas.png",
+                    "img" => "img/mancuernas.png",
 
                     "titulo" => "Nutrición",
 
@@ -135,7 +135,7 @@
                 ],
 
                 [
-                    "img" => "/FitLab/public/img/clase_zumba.png",
+                    "img" => "img/clase_zumba.png",
 
                     "titulo" => "Clases guiadas",
 
@@ -144,7 +144,7 @@
                 ],
 
                 [
-                    "img" => "/FitLab/public/img/mancuernas.png",
+                    "img" => "img/mancuernas.png",
 
                     "titulo" => "Seguimiento",
 
@@ -251,12 +251,12 @@
         <div class="row mt-4">
 
             <?php
-            $instalaciones = ["../../public/img/mancuernas.png","../../public/img/zona-cintas.png","../../public/img/zona-clases.png","../../public/img/mancuernas.png"];
+            $instalaciones = ["public/img/mancuernas.png","public/img/zona-cintas.png","public/img/zona-clases.png","public/img/mancuernas.png"];
             foreach ($instalaciones as $img):
             ?>
 
             <div class="col-md-3">
-                <img src="/FitLab/public/img/<?php echo $img; ?>" class="img-fluid rounded">
+                <img src="public/img/<?php echo $img; ?>" class="img-fluid rounded">
             </div>
 
             <?php endforeach; ?>
@@ -272,11 +272,11 @@
 
             <div class="col-md-4">
                 <h4>¿Dónde estamos?</h4>
-                <p><img src="/fitlab/public/img/iconos/icono-ubicacion.png" alt="Ubicación" width="20px">
+                <p><img src="img/iconos/icono-ubicacion.png" alt="Ubicación" width="20px">
                     Calle Futbol, 52</p>
                     <p>16003, Cuenca</p>
-                <p><img src="/FitLab/public/img/iconos/icono-telefono.png"  alt="Telefono" width="20px">961 34 23 62</p>
-                <p><img src="/FitLab/public/img/iconos/icono-correo.png"  alt="Correo" width="20px">fitlab@gmail.com</p>
+                <p><img src="img/iconos/icono-telefono.png"  alt="Telefono" width="20px">961 34 23 62</p>
+                <p><img src="img/iconos/icono-correo.png"  alt="Correo" width="20px">fitlab@gmail.com</p>
             </div>
 
             <div class="col-md-4">

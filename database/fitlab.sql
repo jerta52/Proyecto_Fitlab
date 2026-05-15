@@ -1,9 +1,6 @@
 -- Script completo para crear e inicializar la base de datos de FitLab.
 
 
-DROP DATABASE IF EXISTS fitlab;
-CREATE DATABASE fitlab CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE fitlab;
 
 CREATE TABLE rol (
     id_rol INT AUTO_INCREMENT PRIMARY KEY,

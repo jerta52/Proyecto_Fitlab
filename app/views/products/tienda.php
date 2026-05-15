@@ -189,11 +189,11 @@
 
                              data-description="<?php echo $p['descripcion']; ?>"
 
-                             data-image="/FitLab/public/img/<?php echo $p['imagen']; ?>">
+                             data-image="img/<?php echo $p['imagen']; ?>">
 
                             <!-- IMAGEN -->
                             <div class="caja-imagen-producto">
-                                <img src="/FitLab/public/img/<?php echo $p['imagen']; ?>">
+                                <img src="img/<?php echo $p['imagen']; ?>">
                             </div>
 
                             <!-- BODY -->
@@ -291,7 +291,6 @@
                    class="descripcion-ventana">
                 </p>
 
-                <!-- ICONOS -->
                 <div class="iconos-ventana mt-4">
 
                     <span>Envío gratis</span>

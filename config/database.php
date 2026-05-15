@@ -2,10 +2,10 @@
 
 class Database {
 
-    private $host = "localhost";
-    private $db_name = "fitlab";
-    private $username = "root";
-    private $password = "";
+    private $host = "sql102.infinityfree.com";
+    private $db_name = "if0_41927992_fitlab";
+    private $username = "if0_41927992";
+    private $password = "wLNxAMpoK0";
     private $conn;
 
     // Establece la conexión con la base de datos

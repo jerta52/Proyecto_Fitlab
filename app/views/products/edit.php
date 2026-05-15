@@ -68,7 +68,15 @@
                                       class="form-control"><?php echo $product['descripcion']; ?></textarea>
 
                         </div>
-
+                        <div class="mb-3">
+                            <label for="id_categoria" class="form-label">Categoría</label>
+                            <select name="id_categoria" id="id_categoria" class="form-control" required>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="1" <?php echo $product['id_categoria'] == 1 ? 'selected' : ''; ?>>Suplementos</option>
+                                <option value="2" <?php echo $product['id_categoria'] == 2 ? 'selected' : ''; ?>>Ropa</option>
+                                <option value="3" <?php echo $product['id_categoria'] == 3 ? 'selected' : ''; ?>>Accesorios</option>
+                            </select>
+                        </div>
                         <div class="mb-3">
 
                             <label>Imagen actual</label><br>

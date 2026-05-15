@@ -153,39 +153,21 @@ class Product {
     }
 
     // Guarda un nuevo producto en la base de datos
-    public function crearProducto(
-        $nombre,
-        $precio,
-        $stock,
-        $descripcion,
-        $imagen
-    ) {
+    public function crearProducto($nombre, $precio, $stock, $descripcion, $imagen, $id_categoria)
+    {
+        $sql = "INSERT INTO producto 
+                (nombre_producto, precio, stock, descripcion, imagen, id_categoria)
+                VALUES (?, ?, ?, ?, ?, ?)";
 
-        $query = "INSERT INTO producto
-                  (
-                    nombre_producto,
-                    precio,
-                    stock,
-                    descripcion,
-                    imagen
-                  )
-                  VALUES
-                  (
-                    :nombre,
-                    :precio,
-                    :stock,
-                    :descripcion,
-                    :imagen
-                  )";
+        $stmt = $this->db->prepare($sql);
 
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute([
-            ':nombre' => $nombre,
-            ':precio' => $precio,
-            ':stock' => $stock,
-            ':descripcion' => $descripcion,
-            ':imagen' => $imagen
+        return $stmt->execute([
+            $nombre,
+            $precio,
+            $stock,
+            $descripcion,
+            $imagen,
+            $id_categoria
         ]);
     }
 
