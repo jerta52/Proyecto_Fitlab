@@ -1,9 +1,7 @@
 <?php require __DIR__ . '/../layouts/header.php'; ?>
 
-<!-- ================================================= -->
-<!-- HERO TIENDA -->
-<!-- ================================================= -->
 
+<!-- HERO TIENDA -->
 <section class="portada-tienda">
 
     <!-- OVERLAY OSCURO -->
@@ -13,10 +11,8 @@
 
         <div class="row h-100 align-items-center">
 
-            <!-- ================================================= -->
+    
             <!-- TEXTO IZQUIERDA -->
-            <!-- ================================================= -->
-
             <div class="col-lg-4 lado-izquierdo-portada">
 
                 <h1 class="titulo-tienda text-white">
@@ -72,10 +68,8 @@
 
             </div>
 
-            <!-- ================================================= -->
+       
             <!-- CARRUSEL DERECHA -->
-            <!-- ================================================= -->
-
             <div class="col-lg-8 lado-derecho-portada">
 
                 <div id="shopCarousel"
@@ -123,10 +117,8 @@
 
 </section>
 
-<!-- ================================================= -->
-<!-- CATEGORÍAS -->
-<!-- ================================================= -->
 
+<!-- CATEGORÍAS -->
 <section id="shop" class="seccion-tienda py-5">
 
     <div class="container">
@@ -176,10 +168,8 @@
 
         </div>
 
-        <!-- ================================================= -->
+   
         <!-- PRODUCTOS -->
-        <!-- ================================================= -->
-
         <div class="row">
 
             <?php if (!empty($products)): ?>
@@ -187,10 +177,8 @@
 
                     <div class="col-md-3 mb-4">
 
-                        <!-- ================================================= -->
+                      
                         <!-- CARD -->
-                        <!-- ================================================= -->
-
                         <div class="card tarjeta-producto abrir-producto"
 
                              data-id="<?php echo $p['id_producto']; ?>"
@@ -262,10 +250,8 @@
 
 </section>
 
-<!-- ================================================= -->
-<!-- POPUP PRODUCTO -->
-<!-- ================================================= -->
 
+<!-- POPUP PRODUCTO -->
 <div id="productModal" class="ventana-producto">
 
     <!-- CONTENIDO -->
@@ -275,7 +261,7 @@
         <button class="cerrar-ventana"
                 id="closeModal">
 
-            ×
+            x
 
         </button>
 
@@ -308,11 +294,11 @@
                 <!-- ICONOS -->
                 <div class="iconos-ventana mt-4">
 
-                    <span>🚚 Envío gratis</span>
+                    <span>Envío gratis</span>
 
-                    <span>↩️ Devoluciones</span>
+                    <span>Devoluciones</span>
 
-                    <span>🔒 Pago seguro</span>
+                    <span>Pago seguro</span>
 
                 </div>
 

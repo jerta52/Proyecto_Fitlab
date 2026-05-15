@@ -35,16 +35,14 @@ $focus = $_GET['focus'] ?? 'calorias';
 
         <div class="row justify-content-center g-4">
 
-            <!-- ================================================= -->
-            <!-- CALORÍAS -->
-            <!-- ================================================= -->
 
+            <!-- CALORÍAS -->
             <div class="col-lg-5">
 
                 <div class="tarjeta-calculadora <?php echo $focus == 'calorias' ? 'tarjeta-activa' : 'tarjeta-inactiva'; ?>">
 
                     <h3 class="titulo-calculadora">
-                        🔥 CALCULADORA DE CALORÍAS
+                        CALCULADORA DE CALORÍAS
                     </h3>
 
                     <form action="index.php?action=guardarCalorias"
@@ -178,16 +176,13 @@ $focus = $_GET['focus'] ?? 'calorias';
 
             </div>
 
-            <!-- ================================================= -->
             <!-- IMC -->
-            <!-- ================================================= -->
-
             <div class="col-lg-5">
 
                 <div class="tarjeta-calculadora <?php echo $focus == 'imc' ? 'tarjeta-activa' : 'tarjeta-inactiva'; ?>">
 
                     <h3 class="titulo-calculadora">
-                        📏 CALCULADORA IMC
+                        CALCULADORA IMC
                     </h3>
 
                     <form action="index.php?action=guardarImc"

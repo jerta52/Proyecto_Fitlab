@@ -153,7 +153,7 @@ INSERT INTO categoria (id_categoria, nombre_categoria, descripcion) VALUES
 
 INSERT INTO usuario (id_usuario, nombre, apellidos, email, contrasena, telefono, direccion, fecha_registro, id_rol) VALUES
 (1, 'Admin', 'FitLab', 'admin@fitlab.com', '$2y$12$YFu3VKzVBGO2hZ/UlKt7GeqFFJWZoOAdL1cE.ovREITXkbhWKHx2W', NULL, NULL, NOW(), 1),
-(2, 'Usuario', 'Prueba', 'usuario@fitlab.com', '$2y$12$w2KTQFAXvrxgtUIlM2NmZ.63LWXuR93w3qGkD7GsIlr2XwLrI7E/6', NULL, NULL, NOW(), 2);
+(2, 'Usuario', 'Prueba', 'usuario@fitlab.com', '$2y$12$vVfU2xOMpz8ZPdGOME7dT.qDNGXrZYqd3wSe16PQ4irGdNNZo1/mO', NULL, NULL, NOW(), 2);
 
 INSERT INTO producto (id_producto, nombre_producto, descripcion, precio, stock, imagen, id_categoria) VALUES
 (1, 'Proteína Whey', 'Proteína en polvo para recuperación muscular después del entrenamiento.', 29.99, 20, 'whey.png', 1),

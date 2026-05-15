@@ -12,7 +12,11 @@
             <div class="col-lg-3 mb-4">
 
                 <div class="caja-filtros p-4">
-
+                    <?php
+                        $categoriaActual = $categoriaActual ?? '';
+                        $precioMinimoActual = $precioMinimoActual ?? '';
+                        $precioMaximoActual = $precioMaximoActual ?? '';
+                    ?>
                     <form method="GET" action="index.php">
 
                         <input type="hidden" name="action" value="catalogo">
@@ -132,7 +136,7 @@
         <button class="cerrar-ventana"
                 id="closeModal">
 
-            ×
+            x
 
         </button>
 
@@ -165,11 +169,11 @@
                 <!-- ICONOS -->
                 <div class="iconos-ventana mt-4">
 
-                    <span>🚚 Envío gratis</span>
+                    <span>Envío gratis</span>
 
-                    <span>↩️ Devoluciones</span>
+                    <span>Devoluciones</span>
 
-                    <span>🔒 Pago seguro</span>
+                    <span>Pago seguro</span>
 
                 </div>
 
