@@ -1,0 +1,1336 @@
+
+/* TEXTO GENERAL */
+html {
+    scroll-padding-top: 82px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #101112;
+    padding-top: 74px;
+}
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+/* TITULOS PRINCIPALES */
+h1, h2, h3, h4, h5, .title, .titulo-formulario {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+/* NAVBAR */
+.nav-link {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* FOOTER TITULOS */
+.footer h5 {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* BOTONES */
+.btn {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+.btn-primary {
+    background-color: #78B7FF;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #005FCC;
+}
+
+/* BOTÓN OUTLINE */
+.btn-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+    transition: 0.3s;
+}
+
+/* HOVER DE LOS BOTONES*/
+.btn-outline-light:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/*CARDS*/
+.card {
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* HEADER */
+.menu-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.navbar.menu-principal .container,
+.navbar.menu-principal .navbar-collapse {
+    background: transparent;
+}
+
+.logo-menu {
+    width: 100px;
+}
+
+/*FOOTER*/
+.pie-web {
+    background-color: #1F2126;
+}
+
+.logo-pie-web {
+    width: 200px;
+    filter: brightness(1.1);
+}
+
+/*ESTILOS PARA LOGIN Y REGISTRO*/
+/* LOGIN BACKGROUND */
+.fondo-formulario {
+    height: 100vh;
+    background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.3)),
+                url('../img/imagen-hero1.png') center/cover no-repeat;
+}
+
+/* TEXTO IZQUIERDA */
+.titulo-formulario {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+}
+
+.titulo-formulario span {
+    color: #78B7FF;
+}
+
+/* CARD LOGIN */
+.caja-formulario {
+    background-color: #1F2126;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* INPUTS */
+.caja-formulario input {
+    background-color: transparent;
+    border: 1px solid #0077FF;
+    color: #fff;
+}
+
+.caja-formulario input::placeholder {
+    color: #B0B0B0;
+}
+
+.caja-formulario input:focus {
+    box-shadow: none;
+    border-color: #78B7FF;
+}
+
+/* LABELS */
+.caja-formulario label {
+    font-size: 13px;
+    color: #B0B0B0;
+}
+
+/* LINKS */
+.caja-formulario a {
+    color: #78B7FF;
+    text-decoration: none;
+}
+
+.caja-formulario a:hover {
+    text-decoration: underline;
+}
+
+/* BOTÓN */
+.caja-formulario .btn-primary {
+    background-color: #78B7FF;
+    border: none;
+    font-weight: bold;
+}
+
+.caja-formulario .btn-primary:hover {
+    background-color: #005FCC;
+}
+
+/*ESTILOS TIENDA*/
+/* PRODUCTOS */
+/* HERO */
+.portada-tienda {
+    height: 90vh;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ROW */
+.portada-tienda .row {
+    height: 90vh;
+}
+
+
+/* CARRUSEL */
+#shopCarousel {
+    height: 100%;
+}
+
+#shopCarousel .carousel-inner {
+    height: 100%;
+}
+
+#shopCarousel .carousel-item {
+    height: 100%;
+}
+
+/* IMÁGENES */
+.imagen-portada-tienda {
+    width: 100%;
+    height: 700px;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/*  DERECHA */
+.lado-derecho-portada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* IZQUIERDA */
+.lado-izquierdo-portada {
+    z-index: 5;
+    padding-left: 70px;
+}
+
+/* TITULO */
+.titulo-tienda {
+    font-size: 5rem;
+    line-height: 0.9;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* TEXTO */
+.texto-portada {
+    color: #ffffff;
+    max-width: 450px;
+    margin: 25px 0;
+}
+
+/* BOTONES */
+.botones-portada {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+/* ICONOS */
+.iconos-tienda {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+
+/* OVERLAY */
+.capa-oscura {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* SECCIÓN */
+.seccion-tienda {
+    background-color: #101112;
+    color: white;
+}
+
+/* FILTROS */
+.filtros .btn {
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.filtros .active {
+    background-color: #78B7FF;
+    color: #000;
+}
+
+/* VER TODO */
+.ver-todo {
+    color: #78B7FF;
+    text-decoration: none;
+}
+
+/* CARD PRODUCTO */
+.tarjeta-producto {
+    background-color: #1A1C20;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    border-color: #78B7FF;
+}
+
+/* IMAGEN */
+.caja-imagen-producto {
+    position: relative;
+}
+
+.caja-imagen-producto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* FAVORITO */
+.favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #78B7FF;
+    font-size: 18px;
+}
+
+/* TEXTO */
+.nombre-producto {
+    font-size: 14px;
+    color: #B0B0B0;
+}
+
+.precio-producto {
+    font-weight: bold;
+    color: #fff;
+}
+
+/*POP UP DEL CARRITO*/
+.caja-carrito {
+    width: 250px;
+    background-color: #1A1C20;
+    border: 1px solid #2a2a2a;
+    color: white;
+}
+
+.linea-carrito {
+    border-bottom: 1px solid #2a2a2a;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.linea-carrito p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.linea-carrito small {
+    color: #78B7FF;
+}
+
+/*  PARTE DEL CATÁLOGO */
+.seccion-tienda {
+    background: #000;
+    min-height: 100vh;
+}
+
+/*  SIDEBAR */
+.caja-filtros {
+    background: #111;
+    border-radius: 12px;
+    color: white;
+}
+
+.caja-filtros h5 {
+    font-weight: bold;
+}
+
+.caja-filtros a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.caja-filtros a:hover {
+    color: #78B7FF;
+}
+
+/* PRODUCTOS */
+.tarjeta-producto {
+    background: #111;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+}
+
+/*  IMAGEN */
+.imagen-producto {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/*  TEXTO */
+.nombre-producto {
+    color: white;
+    font-size: 14px;
+}
+
+.precio-producto {
+    color: #78B7FF;
+    font-weight: bold;
+}
+
+/*  BOTÓN */
+.btn-primary {
+    background: #78B7FF;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #5ea3e6;
+}
+
+
+/* CALCULADORAS */
+/* SECCIÓN */
+.seccion-calculadoras {
+
+    background: #000;
+
+    min-height: 100vh;
+
+    padding-top: 120px;
+
+}
+
+/* BOTONES SUPERIORES */
+.pestanas-calculadora {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-bottom: 60px;
+
+}
+
+.pestana-calculadora {
+    text-decoration: none;
+    display: inline-block;
+    background: #1A1C20;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+
+}
+
+.pestana-calculadora:hover {
+    background: #2a2a2a;
+    color: white;
+}
+
+/* ACTIVO */
+.pestana-activa {
+    background: #78B7FF;
+    color: white;
+}
+
+/* TARJETAS */
+.tarjeta-calculadora {
+    background: #1A1C20;
+    border: 1px solid #2a2a2a;
+    border-radius: 15px;
+    padding: 35px;
+    transition: all 0.4s ease;
+}
+
+/* PANEL ACTIVO */
+.tarjeta-activa {
+    opacity: 1;
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(120,183,255,0.25);
+}
+
+/* PANEL INACTIVO */
+.tarjeta-inactiva {
+    opacity: 0.45;
+    transform: scale(0.95);
+}
+
+
+/* TÍTULO */
+.titulo-calculadora {
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 25px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+
+/* LABELS */
+.tarjeta-calculadora label {
+    color: #B0B0B0;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+
+/* INPUTS */
+.tarjeta-calculadora .form-control,
+.tarjeta-calculadora .form-select {
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    padding: 12px;
+}
+
+/* PLACEHOLDER */
+.tarjeta-calculadora .form-control::placeholder {
+    color: #777;
+}
+
+/* FOCUS */
+.tarjeta-calculadora .form-control:focus,
+.tarjeta-calculadora .form-select:focus {
+    background: #111;
+    color:white;
+    border-color: #78B7FF;
+    box-shadow: none;
+}
+
+
+/* BOTONES */
+.tarjeta-calculadora .btn-primary {
+    background: #78B7FF;
+    border: none;
+    padding: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.tarjeta-calculadora .btn-primary:hover {
+    background: #5ea3e6;
+}
+
+
+/* RESULTADO */
+.resultado-calculo {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #78B7FF;
+    letter-spacing: 1px;
+}
+
+/* HERO */
+.portada-inicio {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* CARRUSEL */
+#heroCarousel {
+    height: 100%;
+}
+
+#heroCarousel .carousel-inner {
+    height: 100%;
+}
+
+#heroCarousel .carousel-item {
+    height: 100%;
+}
+
+/* FONDO */
+.imagen-portada {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/*  OVERLAY */
+
+
+.capa-oscura {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+
+/* CONTENIDO FIJO */
+.contenido-portada {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+}
+
+/* TEXTO */
+.texto-portada-inicio {
+    max-width: 700px;
+}
+
+/* TITULO */
+.titulo-portada {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    line-height: 0.9;
+    color: white;
+}
+
+/* COLOR AZUL */
+.titulo-portada span {
+    color: #0077FF;
+}
+
+/* DESCRIPCIÓN */
+.descripcion-portada {
+    color: white;
+    font-size: 28px;
+    margin: 35px 0;
+}
+
+/* BOTONES */
+.botones-portada {
+    display: flex;
+    gap: 20px;
+}
+
+/* BOTONES */
+.botones-portada .btn {
+    padding: 15px 30px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+
+
+/* ALERTAS */
+.aviso {
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    min-width: 320px;
+    padding: 18px 25px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    z-index: 99999;
+    opacity: 0;
+    transform: translateX(120px);
+    transition: all 0.5s ease;
+    box-shadow: 0 0 25px rgba(0,0,0,0.35);
+}
+
+/* MOSTRAR */
+.mostrar-aviso {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* OCULTAR */
+.ocultar-aviso {
+    opacity: 0;
+    transform: translateX(120px);
+}
+
+/* SUCCESS */
+.aviso-correcto {
+    background: linear-gradient(
+        135deg,
+        #1faa59,
+        #28c76f
+    );
+}
+
+/* ERROR */
+.aviso-error {
+    background: linear-gradient(
+        135deg,
+        #dc3545,
+        #ff4d4d
+    );
+}
+
+/* INFO */
+.aviso-info {
+    background: linear-gradient(
+        135deg,
+        #0077FF,
+        #4da3ff
+    );
+}
+
+
+/* POPUP PRODUCTO */
+.ventana-producto {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.35s ease;
+    padding: 30px;
+}
+
+/* MOSTRAR */
+.mostrar-ventana {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* CONTENIDO */
+.contenido-ventana-producto {
+    background: #111;
+    border-radius: 20px;
+    border: 1px solid #222;
+    width: 100%;
+    max-width: 1150px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+    transform: scale(0.9);
+    transition: 0.35s ease;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.mostrar-ventana .contenido-ventana-producto {
+    transform: scale(1);
+}
+
+
+/* BOTÓN CERRAR */
+.cerrar-ventana {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* IMAGEN */
+.imagen-ventana-producto {
+    width: 100%;
+    max-height: 550px;
+    object-fit: contain;
+}
+
+
+/* TEXOS */
+.modal-title {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.precio-ventana {
+    color: #78B7FF;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.descripcion-ventana {
+    color: #ccc;
+    line-height: 1.8;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+
+/* ICONOS */
+.iconos-ventana {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color:white;
+}
+
+
+/* RESPONSIVE */
+@media(max-width: 992px) {
+    .contenido-ventana-producto {
+        padding: 25px;
+    }
+
+    .modal-title {
+        font-size: 2rem;
+    }
+
+    .imagen-ventana-producto {
+        max-height: 300px;
+    }
+
+}
+
+
+/* ESTILOS POP UP SERVICIOS */
+/* POPUP SERVICIOS */
+.ventana-servicio {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    padding: 20px;
+}
+
+/* MOSTRAR */
+.mostrar-servicio {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* CONTENIDO */
+.contenido-ventana-servicio {
+    background: #111;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+/* ANIMACIÓN */
+.mostrar-servicio .contenido-ventana-servicio {
+    transform: scale(1);
+}
+
+
+/* CERRAR */
+.cerrar-ventana-servicio {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+/* IMAGEN */
+.imagen-ventana-servicio {
+    width: 100%;
+    border-radius: 15px;
+}
+
+
+/* TEXOS */
+.titulo-ventana-servicio {
+    color: white;
+    font-size: 3rem;
+}
+
+.descripcion-ventana-servicio {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* CARD */
+.tarjeta-servicio {
+    cursor: pointer;
+}
+/* AJUSTES RESPONSIVE */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.icono-menu {
+    color: white;
+    font-size: 1.4rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.quitar-carrito {
+    color: #dc3545;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.quitar-carrito:hover {
+    color: #ff6b6b;
+}
+
+.fondo-formulario {
+    min-height: 100vh;
+    height: auto;
+    padding: 90px 0 60px;
+}
+
+.caja-formulario .form-select,
+.caja-formulario textarea,
+.caja-formulario input[type="file"] {
+    background-color: transparent;
+    border: 1px solid #0077FF;
+    color: #fff;
+}
+
+.caja-formulario .form-select option {
+    color: #000;
+}
+
+.caja-formulario input,
+.caja-formulario select,
+.caja-formulario textarea,
+.tarjeta-calculadora input,
+.tarjeta-calculadora select {
+    min-height: 44px;
+}
+
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 64px;
+    }
+
+    .menu-principal .container {
+        max-width: 100%;
+    }
+
+    .navbar-collapse {
+        padding: 1rem 0;
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .menu-principal .d-flex.align-items-center.gap-3 {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .logo-menu {
+        width: 82px;
+    }
+
+    .caja-carrito {
+        width: min(92vw, 320px);
+    }
+
+    .titulo-formulario {
+        font-size: 3.4rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .portada-inicio {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .contenido-portada {
+        padding: 110px 0 60px;
+    }
+
+    .titulo-portada {
+        font-size: 4.5rem;
+    }
+
+    .descripcion-portada {
+        font-size: 1.4rem;
+        margin: 25px 0;
+    }
+
+    .botones-portada {
+        flex-wrap: wrap;
+    }
+
+    .portada-tienda,
+    .portada-tienda .row {
+        height: auto;
+        min-height: auto;
+    }
+
+    .portada-tienda {
+        padding: 95px 0 45px;
+    }
+
+    .lado-izquierdo-portada {
+        padding: 0 24px;
+        text-align: center;
+    }
+
+    .lado-derecho-portada {
+        margin-top: 25px;
+    }
+
+    .titulo-tienda {
+        font-size: 3.8rem;
+    }
+
+    .texto-portada {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .imagen-portada-tienda {
+        height: 300px;
+    }
+
+    .iconos-tienda,
+    .filtros {
+        justify-content: center;
+    }
+
+    .seccion-tienda .d-flex.justify-content-between.align-items-center {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .filtros {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .filtros .btn {
+        margin-right: 0;
+    }
+
+    .caja-filtros {
+        margin-bottom: 25px;
+    }
+
+    .tarjeta-producto {
+        max-width: 370px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pestanas-calculadora {
+        flex-wrap: wrap;
+        margin-bottom: 35px;
+    }
+
+    .tarjeta-calculadora {
+        margin-bottom: 25px;
+    }
+
+    .tarjeta-activa,
+    .tarjeta-inactiva {
+        transform: none;
+    }
+
+    .contenido-ventana-servicio,
+    .contenido-ventana-producto {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body {
+        padding-top: 62px;
+    }
+
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .fondo-formulario {
+        padding: 85px 0 45px;
+    }
+
+    .titulo-formulario {
+        font-size: 2.9rem;
+    }
+
+    .caja-formulario {
+        padding: 22px;
+        max-width: 100%;
+    }
+
+    .titulo-portada {
+        font-size: 3.2rem;
+    }
+
+    .descripcion-portada {
+        font-size: 1.1rem;
+    }
+
+    .botones-portada {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .botones-portada .btn {
+        width: 100%;
+    }
+
+    .titulo-tienda {
+        font-size: 3rem;
+    }
+
+    .botones-portada {
+        align-items: stretch;
+    }
+
+    .iconos-tienda {
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+
+    .imagen-portada-tienda {
+        height: 220px;
+    }
+
+    .seccion-tienda {
+        padding-top: 35px !important;
+    }
+
+    .imagen-producto,
+    .caja-imagen-producto img {
+        height: 190px;
+    }
+
+    .pestanas-calculadora {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .pestana-calculadora {
+        width: 100%;
+        padding: 13px 18px;
+        font-size: 16px;
+    }
+
+    .seccion-calculadoras {
+        padding-top: 95px;
+    }
+
+    .tarjeta-calculadora {
+        padding: 24px 18px;
+    }
+
+    .tarjeta-inactiva {
+        opacity: 0.8;
+    }
+
+    .resultado-calculo {
+        font-size: 22px;
+    }
+
+    .aviso {
+        top: 82px;
+        left: 15px;
+        right: 15px;
+        min-width: auto;
+        transform: translateY(-30px);
+    }
+
+    .mostrar-aviso {
+        transform: translateY(0);
+    }
+
+    .ocultar-aviso {
+        transform: translateY(-30px);
+    }
+
+    .ventana-producto,
+    .ventana-servicio {
+        padding: 12px;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .contenido-ventana-producto,
+    .contenido-ventana-servicio {
+        padding: 22px;
+        margin-top: 25px;
+        border-radius: 14px;
+    }
+
+    .cerrar-ventana,
+    .cerrar-ventana-servicio {
+        top: 8px;
+        right: 12px;
+        font-size: 32px;
+    }
+
+    .modal-title,
+    .titulo-ventana-servicio {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    .precio-ventana {
+        font-size: 1.5rem;
+    }
+
+    .iconos-ventana {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pie-web {
+        text-align: center;
+    }
+
+    .logo-pie-web {
+        width: 160px;
+    }
+}
+
+
+/* ============================================================
+   CORRECCION FINAL DE CONTRASTE EN BOTONES
+   Todos los botones mantienen texto blanco y fondos visibles.
+   Se usan variables del diseño activo sin cambiar la estructura original.
+   ============================================================ */
+.btn,
+.btn:visited,
+button.btn,
+a.btn,
+input[type="submit"].btn,
+input[type="button"].btn {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+.btn-primary,
+.caja-formulario .btn-primary,
+.tarjeta-calculadora .btn-primary,
+.botones-portada .btn-primary {
+    background-color: var(--fitlab-color-principal, #78B7FF) !important;
+    border-color: var(--fitlab-color-principal, #78B7FF) !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.caja-formulario .btn-primary:hover,
+.tarjeta-calculadora .btn-primary:hover,
+.botones-portada .btn-primary:hover {
+    background-color: var(--fitlab-color-secundario, #005FCC) !important;
+    border-color: var(--fitlab-color-secundario, #005FCC) !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-light,
+.btn-outline-primary,
+.boton-secundario {
+    color: #ffffff !important;
+    border-color: var(--fitlab-color-secundario, #0077FF) !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-light:hover,
+.btn-outline-primary:hover,
+.boton-secundario:hover {
+    color: #ffffff !important;
+    background-color: var(--fitlab-color-secundario, #0077FF) !important;
+    border-color: var(--fitlab-color-secundario, #0077FF) !important;
+}
+
+.btn-light,
+.filtros .btn-light {
+    color: #ffffff !important;
+    background-color: var(--fitlab-color-principal, #78B7FF) !important;
+    border-color: var(--fitlab-color-principal, #78B7FF) !important;
+}
+
+.btn-dark,
+.filtros .btn-dark,
+.btn-secondary,
+.btn-warning,
+.btn-info,
+.btn-danger,
+.btn-success {
+    color: #ffffff !important;
+}
+
+.btn-warning { background-color: #b7791f !important; border-color: #b7791f !important; }
+.btn-info { background-color: #0f766e !important; border-color: #0f766e !important; }
+.btn-secondary { background-color: #4b5563 !important; border-color: #4b5563 !important; }
+
+.dropdown-menu .dropdown-item {
+    color: #111827 !important;
+}
+.dropdown-menu .dropdown-item:hover {
+    color: #ffffff !important;
+    background-color: var(--fitlab-color-secundario, #0077FF) !important;
+}
