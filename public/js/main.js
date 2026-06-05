@@ -77,8 +77,28 @@ console.log("JS funcionando");
                 modalDescription.innerText =
                     card.dataset.description;
 
-                modalBuyBtn.href =
-                    `index.php?action=agregarAlCarrito&id=${card.dataset.id}`;
+                // Controla el botón del modal según el stock del producto.
+                // Si el stock es 0, se muestra Agotado y no se permite comprar.
+                const stockProducto = parseInt(card.dataset.stock || '0', 10);
+
+                modalBuyBtn.classList.remove('disabled', 'btn-secondary');
+                modalBuyBtn.classList.add('btn-primary');
+                modalBuyBtn.removeAttribute('aria-disabled');
+
+                if (stockProducto <= 0) {
+                    modalBuyBtn.href = '#';
+                    modalBuyBtn.innerText = 'AGOTADO';
+                    modalBuyBtn.classList.remove('btn-primary');
+                    modalBuyBtn.classList.add('btn-secondary', 'disabled');
+                    modalBuyBtn.setAttribute('aria-disabled', 'true');
+                } else if (modalBuyBtn.dataset.accion === 'comprar') {
+                    modalBuyBtn.href =
+                        `index.php?action=agregarAlCarrito&id=${card.dataset.id}`;
+                    modalBuyBtn.innerText = 'AGREGAR AL CARRITO';
+                } else if (modalBuyBtn.dataset.accion === 'login') {
+                    modalBuyBtn.href = 'index.php?action=login';
+                    modalBuyBtn.innerText = 'INICIA SESIÓN PARA COMPRAR';
+                }
 
                 // MOSTRAR
                 modal.classList.add('mostrar-ventana');
@@ -195,4 +215,19 @@ console.log("JS funcionando");
 
     }
 
+});
+// CARRUSEL DEL HERO
+// Se inicializa también por JavaScript para asegurar que funcione en móvil.
+document.addEventListener('DOMContentLoaded', () => {
+    const heroCarousel = document.getElementById('heroCarousel');
+
+    if (heroCarousel && window.bootstrap && bootstrap.Carousel) {
+        new bootstrap.Carousel(heroCarousel, {
+            interval: 4000,
+            ride: 'carousel',
+            pause: false,
+            touch: true,
+            wrap: true
+        });
+    }
 });

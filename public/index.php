@@ -17,6 +17,10 @@ $orderController = new OrderController();
 switch ($action) {
     // PÁGINAS PÚBLICAS
     case 'home':
+        if (class_exists('AuthHelper') && AuthHelper::isAdmin()) {
+            header('Location: index.php?action=adminDashboard');
+            exit;
+        }
         require __DIR__ . '/../app/views/home/index.php';
         break;
 
@@ -31,6 +35,7 @@ switch ($action) {
     case 'register':
         $authController->mostrarRegistro();
         break;
+
 
     case 'doRegister':
         $authController->registrarUsuario();

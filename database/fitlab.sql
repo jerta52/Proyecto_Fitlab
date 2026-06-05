@@ -1,5 +1,6 @@
 -- FitLab - base de datos actualizada para InfinityFree/phpMyAdmin.
-
+-- Importar este archivo dentro de la base de datos creada por el hosting.
+-- No contiene CREATE DATABASE ni USE para evitar el error #1044 en InfinityFree.
 
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS detalle_pedido;

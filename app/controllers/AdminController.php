@@ -176,9 +176,14 @@ class AdminController
         AuthHelper::requireAdmin();
 
         $model = new Order();
-        $model->actualizarEstado($_POST['id_pedido'], $_POST['estado']);
 
-        $_SESSION['success'] = 'Estado del pedido actualizado.';
+        try {
+            $model->actualizarEstado($_POST['id_pedido'], $_POST['estado']);
+            $_SESSION['success'] = 'Estado del pedido actualizado.';
+        } catch (Throwable $e) {
+            $_SESSION['error'] = 'No se pudo actualizar el pedido: ' . $e->getMessage();
+        }
+
         header('Location: index.php?action=adminPedidos');
         exit;
     }

@@ -7,6 +7,12 @@ class ProductController
     // Muestra la tienda y filtra productos por categoría si existe
     public function mostrarTienda()
     {
+        // El administrador no usa la tienda; solo accede a su panel.
+        if (AuthHelper::isAdmin()) {
+            header('Location: index.php?action=adminDashboard');
+            exit;
+        }
+
         $model = new Product();
 
         $categoriaActual = isset($_GET['categoria']) && $_GET['categoria'] !== ''
@@ -38,7 +44,9 @@ class ProductController
         $product = $model->obtenerPorId($id);
 
         if (!$product || (int) $product['stock'] <= 0) {
-            die('Producto no disponible');
+            $_SESSION['error'] = 'Este producto está agotado y no se puede añadir al carrito.';
+            header('Location: index.php?action=products');
+            exit;
         }
 
         // GUARDAR EN BASE DE DATOS
@@ -127,11 +135,14 @@ class ProductController
         $model = new Product();
         $model->crearProducto($nombre, $precio, $stock, $descripcion, $imagenNombre, $id_categoria);
 
+        $_SESSION['success'] = 'Producto creado correctamente.';
         header('Location: index.php?action=catalogo');
         exit;
     }
 
-    // Muestra el catálogo filtrando productos si existen filtros
+    // Muestra el catálogo con filtros.
+    // Los clientes registrados pueden usarlo para comprar y filtrar productos.
+    // El administrador lo usa como subpantalla de gestión de productos desde su panel.
     public function mostrarCatalogo()
     {
         $model = new Product();
@@ -210,6 +221,7 @@ class ProductController
         $model = new Product();
         $model->actualizarProducto($id, $nombre, $precio, $stock, $descripcion, $imagenNombre, $id_categoria);
 
+        $_SESSION['success'] = 'Producto actualizado correctamente.';
         header('Location: index.php?action=catalogo');
         exit;
     }

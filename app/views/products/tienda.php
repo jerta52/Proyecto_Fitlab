@@ -173,7 +173,9 @@
 
                              data-description="<?php echo $p['descripcion']; ?>"
 
-                             data-image="img/<?php echo $p['imagen']; ?>">
+                             data-image="img/<?php echo $p['imagen']; ?>"
+
+                             data-stock="<?php echo (int) $p['stock']; ?>">
 
                             <!-- IMAGEN -->
                             <div class="caja-imagen-producto">
@@ -195,9 +197,13 @@
 
                                 <!-- COMPRAR SOLO CLIENTE -->
                                 <?php if (isset($_SESSION['user']) && $_SESSION['user']['id_rol'] == 2): ?>
-                                    <a href="index.php?action=agregarAlCarrito&id=<?php echo $p['id_producto']; ?>" class="btn btn-primary w-100">
-                                        Comprar
-                                    </a>
+                                    <?php if ((int) $p['stock'] > 0): ?>
+                                        <a href="index.php?action=agregarAlCarrito&id=<?php echo $p['id_producto']; ?>" class="btn btn-primary w-100">
+                                            Comprar
+                                        </a>
+                                    <?php else: ?>
+                                        <button type="button" class="btn btn-secondary w-100" disabled>Agotado</button>
+                                    <?php endif; ?>
                                 <?php elseif (!isset($_SESSION['user'])): ?>
                                     <a href="index.php?action=login" class="btn btn-outline-light w-100">Inicia sesión para comprar</a>
                                 <?php endif; ?>
@@ -292,6 +298,7 @@
                 <!-- BOTÓN -->
                 <a id="modalBuyBtn"
                    href="#"
+                   data-accion="<?php echo (isset($_SESSION['user']) && $_SESSION['user']['id_rol'] == 2) ? 'comprar' : 'login'; ?>"
                    class="btn btn-primary w-100 mt-4">
 
                     AGREGAR AL CARRITO

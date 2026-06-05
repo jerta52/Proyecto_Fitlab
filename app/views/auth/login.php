@@ -31,8 +31,8 @@
                             <input type="password" name="password" class="form-control" placeholder="Tu contraseña">
                         </div>
 
-                        <div class="d-flex justify-content-between small mb-3">
-                            <a href="index.php?action=register">Crear cuenta</a>
+                        <div class="acciones-login mb-3">
+                            <a href="index.php?action=register" class="enlace-formulario">Crear cuenta</a>
                         </div>
 
                         <button class="btn btn-primary w-100">INICIAR SESIÓN</button>

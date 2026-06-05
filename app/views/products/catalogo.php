@@ -3,7 +3,19 @@
 <section class="seccion-tienda py-5">
     <div class="container">
 
-        <h2 class="text-white mb-4">CATÁLOGO</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4 admin-catalogo-cabecera">
+            <?php $esAdmin = isset($_SESSION['user']) && (int) $_SESSION['user']['id_rol'] === 1; ?>
+            <?php $esCliente = isset($_SESSION['user']) && (int) $_SESSION['user']['id_rol'] === 2; ?>
+
+            <h2 class="text-white mb-0"><?= $esAdmin ? 'GESTIÓN DE PRODUCTOS' : 'CATÁLOGO DE PRODUCTOS' ?></h2>
+
+            <?php if ($esAdmin): ?>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="index.php?action=adminDashboard" class="btn btn-secondary">Volver al panel</a>
+                    <a href="index.php?action=createProduct" class="btn btn-primary">Nuevo producto</a>
+                </div>
+            <?php endif; ?>
+        </div>
 
         <!-- ESTRUCTURA CORRECTA -->
         <div class="row">
@@ -82,7 +94,9 @@
 
          data-description="<?php echo $p['descripcion']; ?>"
 
-         data-image="img/<?php echo $p['imagen']; ?>">
+         data-image="img/<?php echo $p['imagen']; ?>"
+
+         data-stock="<?php echo (int) $p['stock']; ?>">
 
         <img src="img/<?php echo $p['imagen']; ?>"
              class="imagen-producto">
@@ -101,12 +115,16 @@
 
             </p>
 
-            <?php if (isset($_SESSION['user']) && $_SESSION['user']['id_rol'] == 2): ?>
-                <a
-                    href="index.php?action=agregarAlCarrito&id=<?php echo $p['id_producto']; ?>"
-                    class="btn btn-primary w-100"
-                >Comprar</a>
-            <?php elseif (isset($_SESSION['user']) && $_SESSION['user']['id_rol'] == 1): ?>
+            <?php if ($esCliente): ?>
+                <?php if ((int) $p['stock'] > 0): ?>
+                    <a
+                        href="index.php?action=agregarAlCarrito&id=<?php echo $p['id_producto']; ?>"
+                        class="btn btn-primary w-100"
+                    >Comprar</a>
+                <?php else: ?>
+                    <button type="button" class="btn btn-secondary w-100" disabled>Agotado</button>
+                <?php endif; ?>
+            <?php elseif ($esAdmin): ?>
                 <a
                     href="index.php?action=mostrarEditarProducto&id=<?php echo $p['id_producto']; ?>"
                     class="btn btn-warning w-100"
@@ -195,13 +213,28 @@
                 </div>
 
                 <!-- BOTÓN -->
-                <a id="modalBuyBtn"
-                   href="#"
-                   class="btn btn-primary w-100 mt-4">
-
-                    AGREGAR AL CARRITO
-
-                </a>
+                <?php if ($esCliente): ?>
+                    <a id="modalBuyBtn"
+                       href="#"
+                       data-accion="comprar"
+                       class="btn btn-primary w-100 mt-4">
+                        AGREGAR AL CARRITO
+                    </a>
+                <?php elseif ($esAdmin): ?>
+                    <a id="modalBuyBtn"
+                       href="index.php?action=adminDashboard"
+                       data-accion="admin"
+                       class="btn btn-secondary w-100 mt-4">
+                        VOLVER AL PANEL
+                    </a>
+                <?php else: ?>
+                    <a id="modalBuyBtn"
+                       href="index.php?action=login"
+                       data-accion="login"
+                       class="btn btn-outline-light w-100 mt-4">
+                        INICIA SESIÓN PARA COMPRAR
+                    </a>
+                <?php endif; ?>
 
             </div>
 

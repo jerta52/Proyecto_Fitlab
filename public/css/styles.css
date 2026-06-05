@@ -1334,3 +1334,185 @@ input[type="button"].btn {
     color: #ffffff !important;
     background-color: var(--fitlab-color-secundario, #0077FF) !important;
 }
+
+/* ================================================= */
+/* AJUSTES FINALES: ADMIN, RECUPERACIÓN Y MÓVIL */
+/* ================================================= */
+
+.acciones-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+}
+
+.enlace-formulario {
+    color: var(--fitlab-color-principal, #78B7FF);
+    text-decoration: none;
+}
+
+.enlace-formulario:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.texto-ayuda-login {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.admin-catalogo-cabecera {
+    gap: 16px;
+}
+
+.caja-carrito {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.linea-carrito > div {
+    min-width: 0;
+}
+
+.linea-carrito p {
+    word-break: break-word;
+}
+
+@media (max-width: 991.98px) {
+    .portada-inicio {
+        height: calc(100vh - 62px);
+        min-height: 640px;
+    }
+
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item,
+    .imagen-portada {
+        height: 100%;
+        min-height: inherit;
+    }
+
+    .caja-carrito.dropdown-menu {
+        position: fixed !important;
+        top: 78px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        width: calc(100vw - 24px) !important;
+        max-width: 360px;
+        z-index: 2000;
+    }
+
+    .admin-catalogo-cabecera {
+        flex-direction: column;
+        align-items: stretch !important;
+        text-align: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .portada-inicio {
+        height: calc(100vh - 62px);
+        min-height: 620px;
+    }
+
+    .texto-portada-inicio {
+        width: 100%;
+    }
+
+    .caja-carrito.dropdown-menu {
+        top: 72px !important;
+        width: calc(100vw - 18px) !important;
+    }
+
+    .acciones-login {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+/* CORRECCIÓN FINAL MÓVIL: carrito desplegable y hero/carrusel */
+@media (max-width: 991.98px) {
+    .dropdown-menu.caja-carrito,
+    .caja-carrito.dropdown-menu {
+        position: fixed !important;
+        top: 74px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        width: calc(100vw - 20px) !important;
+        max-width: 380px !important;
+        max-height: calc(100vh - 100px) !important;
+        overflow-y: auto !important;
+        white-space: normal !important;
+        z-index: 3000 !important;
+    }
+
+    .linea-carrito {
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+
+    .linea-carrito p,
+    .linea-carrito small {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .portada-inicio {
+        height: auto !important;
+        min-height: 100svh !important;
+        overflow: hidden;
+    }
+
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item,
+    .imagen-portada {
+        height: 100svh !important;
+        min-height: 620px !important;
+    }
+
+    .imagen-portada {
+        background-position: center center !important;
+    }
+
+    .contenido-portada {
+        min-height: 100svh;
+        padding: 110px 18px 55px !important;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item,
+    .imagen-portada {
+        height: 100svh !important;
+        min-height: 600px !important;
+    }
+
+    .titulo-portada {
+        font-size: clamp(3.2rem, 17vw, 4.6rem) !important;
+    }
+
+    .descripcion-portada {
+        font-size: 1.15rem !important;
+    }
+
+    .botones-portada {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px !important;
+    }
+
+    .botones-portada .btn {
+        width: 100%;
+    }
+}

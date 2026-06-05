@@ -91,15 +91,91 @@ class Order
             throw new Exception('Estado no válido');
         }
 
-        $query = "UPDATE pedido
-                  SET estado = :estado
-                  WHERE id_pedido = :pedido";
+        $id_pedido = (int) $id_pedido;
 
-        $stmt = $this->db->prepare($query);
+        try {
+            $this->db->beginTransaction();
 
-        return $stmt->execute([
-            ':estado' => $estado,
-            ':pedido' => (int) $id_pedido
-        ]);
+            // Obtener el estado actual para saber si hay que devolver o volver a restar stock.
+            $stmtPedido = $this->db->prepare('SELECT estado FROM pedido WHERE id_pedido = :pedido FOR UPDATE');
+            $stmtPedido->execute([':pedido' => $id_pedido]);
+            $pedido = $stmtPedido->fetch(PDO::FETCH_ASSOC);
+
+            if (!$pedido) {
+                throw new Exception('Pedido no encontrado');
+            }
+
+            $estadoAnterior = $pedido['estado'];
+
+            // Si el pedido pasa a cancelado, se devuelven las unidades al stock.
+            if ($estado === 'cancelado' && $estadoAnterior !== 'cancelado') {
+                $this->restaurarStockPedido($id_pedido);
+            }
+
+            // Si un pedido cancelado vuelve a un estado activo, se vuelve a descontar el stock.
+            if ($estado !== 'cancelado' && $estadoAnterior === 'cancelado') {
+                $this->descontarStockPedido($id_pedido);
+            }
+
+            $query = "UPDATE pedido
+                      SET estado = :estado
+                      WHERE id_pedido = :pedido";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([
+                ':estado' => $estado,
+                ':pedido' => $id_pedido
+            ]);
+
+            $this->db->commit();
+            return true;
+        } catch (Throwable $e) {
+            if ($this->db->inTransaction()) {
+                $this->db->rollBack();
+            }
+
+            throw $e;
+        }
+    }
+
+    // Devuelve al producto las unidades de un pedido cancelado
+    private function restaurarStockPedido($id_pedido)
+    {
+        $detalles = $this->obtenerDetalle($id_pedido);
+
+        foreach ($detalles as $detalle) {
+            $query = "UPDATE producto
+                      SET stock = stock + :cantidad
+                      WHERE id_producto = :producto";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([
+                ':cantidad' => (int) $detalle['cantidad'],
+                ':producto' => (int) $detalle['id_producto']
+            ]);
+        }
+    }
+
+    // Vuelve a descontar stock si un pedido cancelado se reactiva
+    private function descontarStockPedido($id_pedido)
+    {
+        $detalles = $this->obtenerDetalle($id_pedido);
+
+        foreach ($detalles as $detalle) {
+            $query = "UPDATE producto
+                      SET stock = stock - :cantidad
+                      WHERE id_producto = :producto
+                      AND stock >= :cantidad";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([
+                ':cantidad' => (int) $detalle['cantidad'],
+                ':producto' => (int) $detalle['id_producto']
+            ]);
+
+            if ($stmt->rowCount() === 0) {
+                throw new Exception('No hay stock suficiente para reactivar el pedido.');
+            }
+        }
     }
 }

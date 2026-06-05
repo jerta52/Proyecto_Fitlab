@@ -31,6 +31,10 @@
         </div>
 
         <div class="col-md-4">
+            <a class="btn btn-primary w-100" href="index.php?action=createProduct">Crear producto nuevo</a>
+        </div>
+
+        <div class="col-md-4">
             <a class="btn btn-info w-100" href="index.php?action=adminPedidos">Gestionar pedidos</a>
         </div>
     </div>

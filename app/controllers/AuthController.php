@@ -3,90 +3,117 @@ require_once __DIR__ . '/../models/User.php';
 
 class AuthController
 {
-    // Muestra la vista del formulario de inicio de sesión
+    // Muestra el formulario de inicio de sesión
     public function mostrarLogin()
     {
         require __DIR__ . '/../views/auth/login.php';
     }
 
-    // Muestra la vista del formulario de registro
+    // Muestra el formulario de registro
     public function mostrarRegistro()
     {
         require __DIR__ . '/../views/auth/register.php';
     }
 
-    // Gestiona el inicio de sesión del usuario
-    public function iniciarSesion()
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            $userModel = new User();
-            $user = $userModel->comprobarInicioSesion($email, $password);
-
-            if ($user) {
-                $_SESSION['user'] = $user;
-                $_SESSION['success'] = 'Bienvenido ' . $user['nombre'];
-
-                header('Location: index.php?action=home');
-            } else {
-                $_SESSION['error'] = 'Correo o contraseña incorrectos';
-
-                header('Location: index.php?action=login');
-            }
-
-            exit;
-        }
-    }
-
-    // Gestiona el registro de nuevos usuarios
+    // Registra un usuario cliente en la aplicación
     public function registrarUsuario()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            try {
-                $userModel = new User();
-                $userModel->registrar($_POST);
+        $nombre = trim($_POST['nombre'] ?? '');
+        $apellidos = trim($_POST['apellidos'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
+        $confirmPassword = $_POST['confirm_password'] ?? '';
 
-                $_SESSION['success'] = 'Cuenta creada correctamente';
-
-                header('Location: index.php?action=login');
-            } catch (PDOException $e) {
-                $_SESSION['error'] = 'Ese correo ya está registrado';
-
-                header('Location: index.php?action=register');
-            }
-
+        if ($nombre === '' || $apellidos === '' || $email === '' || $password === '' || $confirmPassword === '') {
+            $_SESSION['error'] = 'Completa todos los campos obligatorios.';
+            header('Location: index.php?action=register');
             exit;
         }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['error'] = 'El correo electrónico no es válido.';
+            header('Location: index.php?action=register');
+            exit;
+        }
+
+        if (strlen($password) < 8) {
+            $_SESSION['error'] = 'La contraseña debe tener al menos 8 caracteres.';
+            header('Location: index.php?action=register');
+            exit;
+        }
+
+        if ($password !== $confirmPassword) {
+            $_SESSION['error'] = 'Las contraseñas no coinciden.';
+            header('Location: index.php?action=register');
+            exit;
+        }
+
+        $model = new User();
+
+        if ($model->buscarPorEmail($email)) {
+            $_SESSION['error'] = 'Ya existe un usuario con ese correo electrónico.';
+            header('Location: index.php?action=register');
+            exit;
+        }
+
+        $model->crearUsuario($nombre, $apellidos, $email, password_hash($password, PASSWORD_DEFAULT));
+        $_SESSION['success'] = 'Cuenta creada correctamente. Ya puedes iniciar sesión.';
+
+        header('Location: index.php?action=login');
+        exit;
     }
 
-    // Cierra la sesión del usuario y elimina los datos del carrito
+    // Inicia sesión y redirige según el rol del usuario
+    public function iniciarSesion()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $email = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
+
+        if ($email === '' || $password === '') {
+            $_SESSION['error'] = 'Introduce correo electrónico y contraseña.';
+            header('Location: index.php?action=login');
+            exit;
+        }
+
+        $model = new User();
+        $user = $model->buscarPorEmail($email);
+
+        if (!$user || !password_verify($password, $user['contrasena'])) {
+            $_SESSION['error'] = 'Correo electrónico o contraseña incorrectos.';
+            header('Location: index.php?action=login');
+            exit;
+        }
+
+        $_SESSION['user'] = $user;
+
+        // El administrador entra solo a su panel, no a tienda, carrito ni calculadoras.
+        if ((int) $user['id_rol'] === 1) {
+            header('Location: index.php?action=adminDashboard');
+            exit;
+        }
+
+        header('Location: index.php?action=products');
+        exit;
+    }
+
+    // Cierra la sesión actual
     public function cerrarSesion()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        // BORRAR SOLO USER
-        unset($_SESSION['user']);
-
-        // BORRAR CARRITO
-        unset($_SESSION['cart']);
-        unset($_SESSION['total']);
-
-        // MENSAJE INFORMATIVO
-        $_SESSION['info'] = 'Sesión cerrada correctamente';
-
-        header('Location: index.php?action=login');
+        session_destroy();
+        header('Location: index.php?action=home');
         exit;
     }
+
 }

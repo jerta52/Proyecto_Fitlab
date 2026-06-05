@@ -174,33 +174,32 @@ try {
         <!-- MENÚ -->
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php#servicios">Servicios</a>
-                </li>
+                <?php if (isset($_SESSION['user']) && (int) $_SESSION['user']['id_rol'] === 1): ?>
+                    <!-- El administrador solo navega por su panel de administración -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.php?action=adminDashboard">Panel administrador</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#servicios">Servicios</a>
+                    </li>
 
-                <?php if (!isset($_SESSION['user']) || (int) $_SESSION['user']['id_rol'] === 2): ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?action=products">Tienda</a>
                     </li>
-                <?php endif; ?>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php#instalaciones">Instalaciones</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#instalaciones">Instalaciones</a>
+                    </li>
 
-                <?php if (isset($_SESSION['user']) && (int) $_SESSION['user']['id_rol'] === 2): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=calculadoras">Herramientas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=misPedidos">Mis pedidos</a>
-                    </li>
-                <?php endif; ?>
-
-                <?php if (isset($_SESSION['user']) && (int) $_SESSION['user']['id_rol'] === 1): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=adminDashboard">Panel administrador</a>
-                    </li>
+                    <?php if (isset($_SESSION['user']) && (int) $_SESSION['user']['id_rol'] === 2): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=calculadoras">Herramientas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?action=misPedidos">Mis pedidos</a>
+                        </li>
+                    <?php endif; ?>
                 <?php endif; ?>
             </ul>
 
